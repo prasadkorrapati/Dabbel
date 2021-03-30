@@ -509,6 +509,9 @@ $standard-padding: 20px;
         }
     }
     .cart-items {
+        .iconify {
+            margin: 0;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -532,9 +535,11 @@ $standard-padding: 20px;
                 .stepper {
                     padding: 5px 0;
                     border: 1px solid $shopping-cart-item-border-color;
+                    background-color: $forground-color;
                     border-radius: $standard-border-radius;
                     display: inline-block;
                     box-shadow: $box-shadow;
+
 
                     a {
                         border-right: 1px solid $shopping-cart-item-border-color;
@@ -545,9 +550,7 @@ $standard-padding: 20px;
                             border-right: 0;
                         }
 
-                        .iconify {
-                            margin: 0;
-                        }
+                        
                     }
                 }
 
