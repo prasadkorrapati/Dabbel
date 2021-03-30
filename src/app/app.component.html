@@ -69,27 +69,15 @@
       <span class="menu" (click)="toggleSidebar($event)">
         <span class="iconify" data-icon="ion:menu" data-inline="false"></span>
       </span>
-      <span class="toolbar-icon">
-        <span class="iconify" data-icon="feather:calendar" data-inline="false"></span>
-      </span>
-      <span class="toolbar-icon">
-        <span class="iconify" data-icon="feather:message-square" data-inline="false"></span>
-      </span>
-      <span class="toolbar-icon">
-        <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
-      </span>
-      <span class="toolbar-icon">
-        <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
-      </span>
-      <span class="toolbar-icon star-icon">
-        <span class="iconify" data-class="star-icon" data-icon="feather-star" data-inline="false"></span>
-      </span>
+      <span class="iconify" data-icon="feather:calendar" data-inline="false"></span>
+      <span class="iconify" data-icon="feather:message-square" data-inline="false"></span>
+      <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
+      <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
+      <span class="iconify star-icon" data-class="star-icon" data-icon="feather-star" data-inline="false"></span>
     </div>
     <div class="toolbar-right-content">
-      <span class="toolbar-icon">
-        <span class="iconify" data-icon="feather-search" data-inline="false"></span>
-      </span>
-      <span class="toolbar-icon">
+      <span class="iconify" data-icon="feather-search" data-inline="false"></span>
+      <a>
         <span (click)="toggleCart($event)">
           <span class="count" *ngIf="totalCartCount()">{{totalCartCount()}}</span>
           <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
@@ -97,10 +85,8 @@
         <div class="my-cart" (click)="stopPropagation($event)" [ngClass]="{'show-cart': showCart}">
           <ng-container [ngTemplateOutlet]="cartTemlate"></ng-container>
         </div>
-      </span>
-      <span class="toolbar-icon">
-        <span class="iconify" data-icon="feather-bell" data-inline="false"></span>
-      </span>
+      </a>
+      <span class="iconify" data-icon="feather-bell" data-inline="false"></span>
       <div class="user-details">
         <label class="user-name">Username</label>
         <label>admin</label>

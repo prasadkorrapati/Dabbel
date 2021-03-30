@@ -7,9 +7,10 @@ $standard-border-radius : 5px;
 
 $star-icon-color: #ff9f43;
 $shopping-cart-background-color: #7367f0;
-$gray-font: #b4b7bd;
+$shopping-cart-item-border-color: #373f55;
 
 $box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$gray-font: #b4b7bd;
 $large-font-size: 15px;
 $regular-font-size: 12px;
 $small-font-size: 10px;
@@ -32,6 +33,7 @@ $standard-padding: 20px;
     display: flex;
     align-items: center;
     padding: 10px 0;
+    color: $gray-font;
     
     label {
         margin-left: 10px;
@@ -135,6 +137,7 @@ $standard-padding: 20px;
     flex: 1 1 calc(100% - #{$sidebar-width});
     max-width: calc(100% - #{$sidebar-width});
     padding: $standard-padding;
+    color: $gray-font;
 
     .toolbar {
         background-color: $forground-color;
@@ -169,26 +172,30 @@ $standard-padding: 20px;
             }
         }
 
-        .toolbar-icon {
-            padding: 5px;
+        .iconify {
+            margin: 5px;
             color: $gray-font;
             cursor: pointer;
-            .count {
-                background-color: $shopping-cart-background-color;
-                width: 15px;
-                height: 15px;
-                position: absolute;
-                right: -7px;
-                top: -7px;
-                border-radius: 50%;
-                font-size: 10px;
-                font-family: "OpenSans-semibold";
-                display: flex;
-                justify-content: center;
-            }
-            &.star-icon svg {
+            
+
+            &.star-icon {
                 color: $star-icon-color;
             }
+        }
+
+        .count {
+            background-color: $shopping-cart-background-color;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            right: -3px;
+            top: -10px;
+            border-radius: 50%;
+            font-size: 10px;
+            font-family: "OpenSans-semibold";
+            display: flex;
+            justify-content: center;
+            z-index: 1;
         }
     }
 
@@ -470,13 +477,15 @@ $standard-padding: 20px;
     position: absolute;
     top: 0;
     right: 0;
+    width: 0px;
+    height: 0px;
+    color: $gray-font;
     background-color: $forground-color;
     border-radius: $standard-border-radius;
     box-shadow: $box-shadow;
     z-index: 1;
     display: none;
-    width: 0px;
-    height: 0px;
+
     &.show-cart {
         right: 0;
         top: 50px;
@@ -491,7 +500,7 @@ $standard-padding: 20px;
         font-weight: normal;
         padding: 20px 20px;
         margin: 0;
-        border-bottom: 1px solid #373f55;
+        border-bottom: 1px solid $shopping-cart-item-border-color;
         label {
             float: right;
             padding: 5px 10px;
@@ -507,7 +516,7 @@ $standard-padding: 20px;
             border-collapse: collapse;
             tr {
                 &:hover {
-                    background-color: #161d31;
+                    background-color: $background-color;
 
                     td:last-child {
                         span {
@@ -518,19 +527,19 @@ $standard-padding: 20px;
             }
             td {
                 list-style: none;
-                border-bottom: 1px solid #373f55;
+                border-bottom: 1px solid $shopping-cart-item-border-color;
                 padding: 10px 20px;
                 font-family: 'OpenSans-light';
                 font-size: $large-font-size;
                 .stepper {
                     padding: 5px 0;
-                    border: 1px solid #373f55;
+                    border: 1px solid $shopping-cart-item-border-color;
                     border-radius: $standard-border-radius;
                     display: inline-block;
                     box-shadow: $box-shadow;
 
                     span {
-                        border-right: 1px solid #373f55;
+                        border-right: 1px solid $shopping-cart-item-border-color;
                         padding: 0 10px;
                         height: 16px;
                         line-height: 16px;
@@ -576,6 +585,7 @@ $standard-padding: 20px;
             background-color: $shopping-cart-background-color;
             border: 1px solid $shopping-cart-background-color;
             padding: 10px;
+            color: $gray-font;
         }
     }
 
