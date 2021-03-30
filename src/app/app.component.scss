@@ -51,9 +51,9 @@ $standard-padding: 20px;
             opacity: 0.3;
         }
         span {
-            color: $star-icon-color;
             font-size: 10px;
             &.circle {
+                color: $star-icon-color;
                 background-color: #283046;
                 display: inline-block;
                 width: 20px;
