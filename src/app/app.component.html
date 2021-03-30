@@ -171,12 +171,12 @@
         <td>
           <div class="stepper">
 
-            <span (click)="reduceItemCount(item)">
-              <span class="iconify" data-icon="feather:minus" data-inline="false"></span></span>
-            <span>{{item.count}}</span>
-            <span (click)="increateItemCount(item)">
+            <a (click)="reduceItemCount(item)">
+              <span class="iconify" data-icon="feather:minus" data-inline="false"></span></a>
+            <a>{{item.count}}</a>
+            <a (click)="increateItemCount(item)">
               <span class="iconify" data-icon="feather:plus" data-inline="false"></span>
-            </span>
+            </a>
           </div>
         </td>
         <td>

@@ -537,13 +537,17 @@ $standard-padding: 20px;
                     display: inline-block;
                     box-shadow: $box-shadow;
 
-                    span {
+                    a {
                         border-right: 1px solid $shopping-cart-item-border-color;
                         padding: 0 10px;
                         height: 16px;
                         line-height: 16px;
                         &:last-child {
                             border-right: 0;
+                        }
+
+                        .iconify {
+                            margin: 0;
                         }
                     }
                 }
