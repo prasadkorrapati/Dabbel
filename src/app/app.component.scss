@@ -5,6 +5,7 @@ $sidebar-width: 200px;
 $main-content-padding: 20px;
 $standard-border-radius : 5px;
 
+
 $star-icon-color: #ff9f43;
 $shopping-cart-background-color: #7367f0;
 $shopping-cart-item-border-color: #373f55;
@@ -16,6 +17,7 @@ $regular-font-size: 12px;
 $small-font-size: 10px;
 
 $standard-padding: 20px;
+$standard-margin: 20px;
 
 @mixin large-font {
     font-family: 'OpenSans-semibold';
@@ -27,6 +29,11 @@ $standard-padding: 20px;
     font-size: 10px;
 }
 
+@mixin tile {
+    background-color: $forground-color;
+    border-radius: $standard-border-radius;
+    padding: $standard-padding;
+}
 
 @mixin sidebar-link {
     border-radius: $standard-border-radius;
@@ -88,7 +95,7 @@ $standard-padding: 20px;
 
     .circle-desc {
         display: inline-block;
-        padding-left: 20px;
+        padding-left: $standard-padding;
         h5 {
             margin: 0;
             font-size: $large-font-size;
@@ -111,7 +118,6 @@ $standard-padding: 20px;
     width: $sidebar-width;
     padding: 10px;
     .side-bar-link {
-
         @include sidebar-link;
 
         &.home {
@@ -141,8 +147,8 @@ $standard-padding: 20px;
 
     .toolbar {
         background-color: $forground-color;
-        padding: 10px;
         border-radius: $standard-border-radius;
+        padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -182,9 +188,11 @@ $standard-padding: 20px;
         }
 
         .count {
-            background-color: $shopping-cart-background-color;
             width: 15px;
             height: 15px;
+            cursor: pointer;
+            background-color: $shopping-cart-background-color;
+            color: white;
             position: absolute;
             right: -3px;
             top: -10px;
@@ -199,13 +207,11 @@ $standard-padding: 20px;
 
     .title-container {
         display: flex;
-        padding: 20px 0;
+        padding: $standard-padding 0;
 
         .left {
+            @include tile;
             width:30%;
-            background-color: $forground-color;
-            border-radius: $standard-border-radius;
-            padding: $standard-padding;
 
             h6 {
                 @include large-font;
@@ -213,14 +219,14 @@ $standard-padding: 20px;
             }
 
             p {
-                margin: 20px 0 0 0;
+                margin: $standard-margin 0 0 0;
                 color: $gray-font;
                 font-size: $regular-font-size;
             }
         }
         .right {
-            width: calc(70% - 20px);
-            margin-left: 20px;
+            width: calc(70% - #{$standard-padding});
+            margin-left: $standard-margin;
             padding: $standard-padding;
             background-color: $forground-color;
             border-radius: $standard-border-radius;
@@ -238,7 +244,7 @@ $standard-padding: 20px;
 
             // Cirlces styles
             .circles {
-                margin-top: 20px;
+                margin-top: $standard-margin;
                 display: flex;
                 justify-content: space-between;
                 .circle {
@@ -278,7 +284,7 @@ $standard-padding: 20px;
 
     .main-container {
         display: flex;
-        padding-bottom: 20px;
+        padding-bottom: $standard-padding;
 
         .left {
             width: 30%;
@@ -303,7 +309,7 @@ $standard-padding: 20px;
                         background-color: $forground-color;
                         width: calc(50% - 10px);
                         padding: $standard-padding;
-                        margin-left: 20px;
+                        margin-left: $standard-margin;
                         height: 100px;
                         border-radius: $standard-border-radius;
                     }
@@ -313,21 +319,21 @@ $standard-padding: 20px;
             
 
             .inner-bottom {
-                margin-top: 20px;
+                margin-top: $standard-margin;
                 width: 100%;
                 height: 100px;
-                padding:20px;
+                padding: $standard-padding;
                 background-color: $forground-color;
                 border-radius: $standard-border-radius;
             }
         }
         .right {
             padding: $standard-padding;
-            width: calc(70% - 20px);
-            margin-left: 20px;
+            width: calc(70% - #{$standard-margin});
+            margin-left: $standard-margin;
             background-color: $forground-color;
             border-radius: $standard-border-radius;
-            padding-bottom: 20px;
+            padding-bottom: $standard-padding;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -339,16 +345,12 @@ $standard-padding: 20px;
 
         .left {
             width: calc(100% - 10px);
-            background-color: $forground-color;
-            border-radius: $standard-border-radius;
-            padding: $standard-padding;
+            @include tile;
             height: 200px;
         }
         .right {
-            background-color: $forground-color;
-            border-radius: $standard-border-radius;
-            padding: $standard-padding;
-            margin-left: 20px;
+            @include tile;
+            margin-left: $standard-margin;
             width: calc(100% - 10px);
             height: 200px;
             
@@ -357,7 +359,7 @@ $standard-padding: 20px;
 }
 
 
-
+// Car related Styles
 .my-cart {
     position: absolute;
     top: 0;
@@ -383,7 +385,7 @@ $standard-padding: 20px;
     .cart-header {
         font-size: $large-font-size;
         font-weight: normal;
-        padding: 20px 20px;
+        padding: $standard-padding;
         margin: 0;
         display: inline-block;
         width: 100%;
@@ -457,11 +459,11 @@ $standard-padding: 20px;
         }
     }
     .cart-footer {
-        padding: 10px 20px;
+        padding: $standard-padding;
 
         label {
             @include large-font;
-            margin: 10px 0;
+            margin: 0 0 10px 0;
             display: inline-block;
             width: 100%;
         }
@@ -526,20 +528,20 @@ $standard-padding: 20px;
         }
 
 
-            .title-container {
-                .right {
-                    width: 50%;
+        .title-container {
+            .right {
+                width: 50%;
 
-                    .circles {
-                        display: inline-block;
-                        margin-top: 0;
-                        .circle {
-                            margin-top: 20px;
-                            width: 50%;
-                        }
-                    } 
-                }
+                .circles {
+                    display: inline-block;
+                    margin-top: 0;
+                    .circle {
+                        margin-top: $standard-margin;
+                        width: 50%;
+                    }
+                } 
             }
+        }
 
         .title-container, .main-container {
             .left, .right {
@@ -563,7 +565,7 @@ $standard-padding: 20px;
             }
             .right {
                 width: 100%;
-                margin: 20px 0 0 0;
+                margin: $standard-margin 0 0 0;
                 
                 .circles {
                     display: block;
@@ -583,7 +585,7 @@ $standard-padding: 20px;
             }
             .right {
                 width: 100%;
-                margin: 20px 0 0 0;
+                margin: $standard-margin 0 0 0;
             }
         }
 
@@ -596,7 +598,7 @@ $standard-padding: 20px;
 
             .right {
                 width: 100%;
-                margin: 20px 0 0 0;
+                margin: $standard-margin 0 0 0;
             }
         }
     }
