@@ -384,8 +384,10 @@ $standard-padding: 20px;
 
         .toolbar {
             .toolbar-left-content {
+
                 // toolbar left icons has to hidden in tablet
-                .toolbar-icon {
+                & > .iconify {
+
                     display: none;
                 }
                 .menu {
