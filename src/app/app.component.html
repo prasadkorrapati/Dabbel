@@ -1,43 +1,42 @@
-<div class="side-bar" [ngClass]="{'show-sidebar': showSidebar}" >
+<div class="side-bar" [ngClass]="{'show-sidebar': showSidebar}">
   <div class="side-bar-link home">
     <span class="iconify" data-icon="feather-home" data-inline="false"></span>
-     <label>Home</label>
+    <label>Home</label>
 
-     <label class="side-bar-link-meta">
-       <span class="circle">2</span>
-       <span class="iconify" data-icon="feather:chevron-down" data-inline="false"></span>
-     </label>
+    <label class="side-bar-link-meta">
+      <span class="circle">2</span>
+      <span class="iconify" data-icon="feather:chevron-down" data-inline="false"></span>
+    </label>
   </div>
 
   <div class="side-bar-category">
     <h5>CATEGORY1</h5>
-
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
-       <label>Email</label>
+      <label>Email</label>
     </div>
 
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather:message-square" data-inline="false"></span>
-       <label>Chat</label>
+      <label>Chat</label>
     </div>
 
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
-       <label>Todo</label>
+      <label>Todo</label>
     </div>
 
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather:calendar" data-inline="false"></span>
-       <label>Calendar</label>
+      <label>Calendar</label>
     </div>
 
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
-       <label>eCommerce</label>
-       <label class="side-bar-link-meta">
-         <span><span class="iconify" data-icon="feather:chevron-right" data-inline="false"></span></span>
-       </label>
+      <label>eCommerce</label>
+      <label class="side-bar-link-meta">
+        <span><span class="iconify" data-icon="feather:chevron-right" data-inline="false"></span></span>
+      </label>
     </div>
 
   </div>
@@ -47,11 +46,11 @@
 
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather-type" data-inline="false"></span>
-       <label>Typography</label>
+      <label>Typography</label>
     </div>
     <div class="side-bar-link">
       <span class="iconify" data-icon="feather-eye" data-inline="false"></span>
-       <label>Feather</label>
+      <label>Feather</label>
     </div>
     <div class="side-bar-link">
 
@@ -67,9 +66,8 @@
 <div class="main-content">
   <div class="toolbar">
     <div class="toolbar-left-content">
-      <!-- (click)="toggleSidebar($event)" -->
-      <span  class="menu">
-        <span class="iconify" data-icon="ion:menu" data-inline="false" ></span>
+      <span class="menu" (click)="toggleSidebar($event)">
+        <span class="iconify" data-icon="ion:menu" data-inline="false"></span>
       </span>
       <span class="toolbar-icon">
         <span class="iconify" data-icon="feather:calendar" data-inline="false"></span>
@@ -91,12 +89,12 @@
       <span class="toolbar-icon">
         <span class="iconify" data-icon="feather-search" data-inline="false"></span>
       </span>
-      <span class="toolbar-icon" >
-        <span (click)= "toggleCart()">
-          <span class="count">{{shopping_cart_items.length}}</span>
+      <span class="toolbar-icon">
+        <span (click)="toggleCart($event)">
+          <span class="count" *ngIf="totalCartCount()">{{totalCartCount()}}</span>
           <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
         </span>
-        <div class="my-cart"  [ngClass]="{'show-cart': showCart}">
+        <div class="my-cart" (click)="stopPropagation($event)" [ngClass]="{'show-cart': showCart}">
           <ng-container [ngTemplateOutlet]="cartTemlate"></ng-container>
         </div>
       </span>
@@ -108,48 +106,49 @@
         <label>admin</label>
       </div>
     </div>
-    
-    
+
+
   </div>
   <div class="title-container">
     <div class="left">
       <h6>Title</h6>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.</p>
     </div>
     <div class="right">
       <h6>Title <span>Updated N month(s) ago</span></h6>
       <div class="circles">
-          <div class="circle circle1">
-            <div class="img">img</div>
-            <div class="circle-desc">
-              <h5>999k</h5>
-              <span>Lorem</span>
-            </div>
+        <div class="circle circle1">
+          <div class="circle-img">img</div>
+          <div class="circle-desc">
+            <h5>999k</h5>
+            <span>Lorem</span>
           </div>
+        </div>
 
-          <div class="circle circle2">
-            <div class="img">img</div>
-            <div class="circle-desc">
-              <h5>999k</h5>
-              <span>Lorem</span>
-            </div>
+        <div class="circle circle2">
+          <div class="circle-img">img</div>
+          <div class="circle-desc">
+            <h5>999k</h5>
+            <span>Lorem</span>
           </div>
+        </div>
 
-          <div class="circle circle3">
-            <div class="img">img</div>
-            <div class="circle-desc">
-              <h5>999k</h5>
-              <span>Lorem</span>
-            </div>
+        <div class="circle circle3">
+          <div class="circle-img">img</div>
+          <div class="circle-desc">
+            <h5>999k</h5>
+            <span>Lorem</span>
           </div>
+        </div>
 
-          <div class="circle circle4">
-            <div class="img">img</div>
-            <div class="circle-desc">
-              <h5>999k</h5>
-              <span>Lorem</span>
-            </div>
+        <div class="circle circle4">
+          <div class="circle-img">img</div>
+          <div class="circle-desc">
+            <h5>999k</h5>
+            <span>Lorem</span>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -162,10 +161,10 @@
         </div>
         <div class="inner-bottom"></div>
       </div>
-      
-
     </div>
-    <div class="right"> <p>I am a text centered!</p></div>
+    <div class="right">
+      <p>I am a text centered!</p>
+    </div>
   </div>
   <div class="main-container-bottom">
     <div class="left"></div>
@@ -174,12 +173,14 @@
 </div>
 
 <ng-template #cartTemlate>
+  <!--Cart Header-->
   <div class="cart-header">
-    My Cart <label> {{shopping_cart_items.length}} Items</label>
+    My Cart <label> {{totalCartCount()}} Items</label>
   </div>
+  <!--Cart Items-->
   <div class="cart-items">
     <table>
-      <tr *ngFor="let item of shopping_cart_items">
+      <tr *ngFor="let item of shopping_cart_items; index as i">
         <td>{{item.name}}</td>
         <td>
           <div class="stepper">
@@ -191,18 +192,19 @@
               <span class="iconify" data-icon="feather:plus" data-inline="false"></span>
             </span>
           </div>
-          
-
-
         </td>
         <td>
           ${{item.price}}
+          <span (click)="removeItemFromCart(i, item)">
+            <span class="iconify" data-icon="feather-x" data-inline="false"></span>
+          </span>
         </td>
       </tr>
     </table>
   </div>
+  <!--Cart Footer-->
   <div class="cart-footer">
-    <label>Total: <span>${{totalCount()}}</span></label>
-    <button>Checkout</button>
+    <label>Total: <span>${{totalPriceCount()}}</span></label>
+    <button (click)="checkout()">Checkout</button>
   </div>
 </ng-template>
