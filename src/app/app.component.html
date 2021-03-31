@@ -170,7 +170,6 @@
         <td>{{item.name}}</td>
         <td>
           <div class="stepper">
-
             <a (click)="reduceItemCount(item)">
               <span class="iconify" data-icon="feather:minus" data-inline="false"></span></a>
             <a>{{item.count}}</a>
@@ -182,10 +181,9 @@
         <td>
           ${{item.price}}
           <sup (click)="removeItemFromCart(i, item)">
-
             <span class="iconify" data-icon="feather-x" data-inline="false"></span>
-            </sup>
-            
+          </sup>
+
           <!-- <span (click)="removeItemFromCart(i, item)">
           </span> -->
         </td>

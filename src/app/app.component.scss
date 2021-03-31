@@ -412,7 +412,7 @@ $standard-margin: 20px;
                     background-color: $background-color;
 
                     td:last-child {
-                        span {
+                        sup {
                             display: inline;
                         }
                     }
@@ -447,9 +447,13 @@ $standard-margin: 20px;
                     text-align: right;
 
                     sup {
-                        left: -17px;
-                        vertical-align: super;
-                        top: -5px;
+                        right: 20px;
+                        top: 5px;
+                        right: 20px;
+                        display: none;
+                        position: absolute;
+                        width: 13px;
+                        height: 13px;
                     }
                     // span {
                     //     display: none;
@@ -610,22 +614,25 @@ $standard-margin: 20px;
 @media(max-width: 400px) {
     .my-cart {
         &.show-cart { 
-            width: 100vh;   
+            width: calc(100vw - 100px);   
         }
+        .cart-items {
 
-        tr {
-            display: block;
-            
-            td {
+            tr {
                 display: block;
-                text-align: center !important;
-
-                span {
-                    text-align: center;
-                    top: 12px !important;
+                
+                td {
+                    display: block;
+                    text-align: center !important;
+    
+                    &:last-child sup{
+                        right: 20px;
+                        top: 12px;
+                    }
                 }
             }
         }
+
 
     }
     
