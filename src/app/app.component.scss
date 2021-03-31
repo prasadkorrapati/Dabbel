@@ -107,6 +107,7 @@ $standard-margin: 20px;
         }
     }
 }
+
 :host {
     display: flex;
     height: 100%;
@@ -488,7 +489,7 @@ $standard-margin: 20px;
             background-color: $shopping-cart-background-color;
             border: 1px solid $shopping-cart-background-color;
             padding: 10px;
-            color: $gray-font;
+            color: white;
         }
     }
 
@@ -609,31 +610,4 @@ $standard-margin: 20px;
             }
         }
     }
-}
-
-@media(max-width: 400px) {
-    .my-cart {
-        &.show-cart { 
-            width: calc(100vw - 100px);   
-        }
-        .cart-items {
-
-            tr {
-                display: block;
-                
-                td {
-                    display: block;
-                    text-align: center !important;
-    
-                    &:last-child sup{
-                        right: 20px;
-                        top: 12px;
-                    }
-                }
-            }
-        }
-
-
-    }
-    
 }
