@@ -181,9 +181,13 @@
         </td>
         <td>
           ${{item.price}}
-          <span (click)="removeItemFromCart(i, item)">
+          <sup (click)="removeItemFromCart(i, item)">
+
             <span class="iconify" data-icon="feather-x" data-inline="false"></span>
-          </span>
+            </sup>
+            
+          <!-- <span (click)="removeItemFromCart(i, item)">
+          </span> -->
         </td>
       </tr>
     </table>

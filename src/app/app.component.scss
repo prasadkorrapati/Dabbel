@@ -440,20 +440,23 @@ $standard-margin: 20px;
                         &:last-child {
                             border-right: 0;
                         }
-
-                        
                     }
                 }
 
                 &:last-child {
                     text-align: right;
 
-                    span {
-                        display: none;
-                        position: absolute;
-                        top: 7px;
-                        right: 20px;
+                    sup {
+                        left: -17px;
+                        vertical-align: super;
+                        top: -5px;
                     }
+                    // span {
+                    //     display: none;
+                    //     position: absolute;
+                    //     top: 7px;
+                    //     right: 20px;
+                    // }
                 }
             }
         }
