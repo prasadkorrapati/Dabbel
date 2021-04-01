@@ -456,12 +456,6 @@ $standard-margin: 20px;
                         width: 13px;
                         height: 13px;
                     }
-                    // span {
-                    //     display: none;
-                    //     position: absolute;
-                    //     top: 7px;
-                    //     right: 20px;
-                    // }
                 }
             }
         }
@@ -608,6 +602,17 @@ $standard-margin: 20px;
                 width: 100%;
                 margin: $standard-margin 0 0 0;
             }
+        }
+    }
+}
+
+@media(max-width: 576px) {
+    .my-cart {
+        
+        &.show-cart {
+            width: calc( 100vw - 60px);
+            right: -10px;
+
         }
     }
 }

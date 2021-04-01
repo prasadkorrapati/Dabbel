@@ -81,16 +81,20 @@
         <span (click)="toggleCart($event)">
           <span class="count" *ngIf="totalCartCount()">{{totalCartCount()}}</span>
           <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
+
+          <div class="my-cart" (click)="stopPropagation($event)" [ngClass]="{'show-cart': showCart}">
+            <ng-container [ngTemplateOutlet]="cartTemlate"></ng-container>
+          </div>
         </span>
-        <div class="my-cart" (click)="stopPropagation($event)" [ngClass]="{'show-cart': showCart}">
-          <ng-container [ngTemplateOutlet]="cartTemlate"></ng-container>
-        </div>
+        
       </a>
       <span class="iconify" data-icon="feather-bell" data-inline="false"></span>
       <div class="user-details">
         <label class="user-name">Username</label>
         <label>admin</label>
       </div>
+
+      
     </div>
 
 
