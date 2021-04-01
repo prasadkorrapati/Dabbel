@@ -1,17 +1,20 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'dabbel';
   public showSidebar = false;
   public showCart = false;
+  public shopping_cart_items ;
+  public cartItemCount;
+  public totalCartPrice;
   public cartPriceReducer = (accumulator, current) => accumulator + (current.count * current.price);
   public cartItemCountReducer = (accumulator, current) => accumulator + current.count;
-
+  
   public shopping_cart_backup = [ 
     { name: "item 1", count: 1, price: 339.99 },
     { name: "item 2", count: 1, price: 129.29 },
@@ -19,50 +22,59 @@ export class AppComponent {
     { name: "item 4", count: 1, price: 999.99 }
   ];
 
-  public shopping_cart_items = this.shopping_cart_backup.map(each => Object.assign({}, each));
+  ngOnInit(): void {
+      this.shopping_cart_items = this.shopping_cart_backup.map(each => Object.assign({}, each));
+      this.updateCartDetails();
+  }
 
 
-  toggleSidebar(event) {
-    console.log('toggeling side bar');
+  public toggleSidebar(event) {
     this.showSidebar = !this.showSidebar;
     this.stopPropagation(event);
   }
 
   @HostListener("document:click")
-  clickedOnDocument() {
+  public clickedOnDocument() {
     this.showSidebar = false;
     this.showCart = false;
   }
 
-  toggleCart(event) {
+  public toggleCart(event) {
     this.showCart = !this.showCart;
     this.stopPropagation(event);
   }
 
-  removeItemFromCart(index, item) {
+  public removeItemFromCart(index, item) {
     this.shopping_cart_items.splice(index, 1);
+    this.updateCartDetails();
   }
 
-  stopPropagation($event) {
+  public stopPropagation($event) {
     $event.stopPropagation()
   }
-  totalCartCount() {
-    return this.shopping_cart_items.reduce(this.cartItemCountReducer,0)
+
+  public reduceItemCount(item) {
+    if(item.count > 0) {
+      item.count --;
+      this.updateCartDetails();
+    }
   }
 
-  totalPriceCount() {
-    return this.shopping_cart_items.reduce(this.cartPriceReducer, 0);
-  }
-
-  reduceItemCount(item) {
-    item.count > 0 ? (item.count = item.count-1) : 0;
-  }
-  increateItemCount(item) {
+  public increateItemCount(item) {
     item.count++;
+    this.updateCartDetails();
   }
+  
 
-  checkout() {
+  public checkout() {
     alert('Yout Transaction finished successfully!');
     this.shopping_cart_items = this.shopping_cart_backup.map(each => Object.assign({}, each));
+    this.showCart = false;
+    this.updateCartDetails();
   }
-}
+
+  private updateCartDetails() {
+    this.cartItemCount = this.shopping_cart_items.reduce(this.cartItemCountReducer,0)
+    this.totalCartPrice = this.shopping_cart_items.reduce(this.cartPriceReducer, 0);
+  }
+ }

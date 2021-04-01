@@ -79,7 +79,7 @@
       <span class="iconify" data-icon="feather-search" data-inline="false"></span>
       <a>
         <span (click)="toggleCart($event)">
-          <span class="count" *ngIf="totalCartCount()">{{totalCartCount()}}</span>
+          <span class="count" *ngIf="cartItemCount">{{cartItemCount}}</span>
           <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
 
           <div class="my-cart" (click)="stopPropagation($event)" [ngClass]="{'show-cart': showCart}">
@@ -165,7 +165,7 @@
 <ng-template #cartTemlate>
   <!--Cart Header-->
   <div class="cart-header">
-    My Cart <label> {{totalCartCount()}} Items</label>
+    My Cart <label> {{cartItemCount}} Items</label>
   </div>
   <!--Cart Items-->
   <div class="cart-items">
@@ -177,7 +177,7 @@
             <a (click)="reduceItemCount(item)">
               <span class="iconify" data-icon="feather:minus" data-inline="false"></span></a>
             <a>{{item.count}}</a>
-            <a (click)="increateItemCount(item)">
+            <a (click)="increateItemCount(item, i)">
               <span class="iconify" data-icon="feather:plus" data-inline="false"></span>
             </a>
           </div>
@@ -187,16 +187,13 @@
           <sup (click)="removeItemFromCart(i, item)">
             <span class="iconify" data-icon="feather-x" data-inline="false"></span>
           </sup>
-
-          <!-- <span (click)="removeItemFromCart(i, item)">
-          </span> -->
         </td>
       </tr>
     </table>
   </div>
   <!--Cart Footer-->
   <div class="cart-footer">
-    <label>Total: <span>${{totalPriceCount()}}</span></label>
+    <label>Total: <span>${{totalCartPrice}}</span></label>
     <button (click)="checkout()">Checkout</button>
   </div>
 </ng-template>
